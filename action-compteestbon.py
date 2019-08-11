@@ -157,7 +157,7 @@ def start_lecompteestbon(hermes, intent_message):
             target = target + nb
             state['solution'] = "{} + {}".format(state['solution'], nb)
 
-    state['target'] = target
+    state['target'] = int(target)
     print(state['solution'])
     enable_intents(hermes, [INTENT_REPEAT, INTENT_STOP, INTENT_TRYSOLUTION])
     hermes.publish_end_session(intent_message.session_id, challenge())
